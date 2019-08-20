@@ -1,3 +1,4 @@
+const Fibonacci = require('../fibonacci');
 
 describe("Fibonacci Tests", function() {
     it("Returns valid sequences", function() {
