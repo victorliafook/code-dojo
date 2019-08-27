@@ -17,5 +17,8 @@ describe("Fibonacci Tests", function() {
         let sequenceArr = fib.getSequence(2); 
         expect(sequenceArr.join(',')).toBe('0,1,1');
         
+        let sequenceArr = fib.getSequence(3); 
+        expect(sequenceArr.join(',')).toBe('0,1,1,2');
+        
     });
 });
