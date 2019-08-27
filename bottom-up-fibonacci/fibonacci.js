@@ -4,11 +4,11 @@ class fibonacciBU {
         if (number === 0) {
             this.sequenceArr.push(0);
         } else {
-            let sum;
             this.sequenceArr.push(0);
             this.sequenceArr.push(1);
+            
             for (let i = 2; i <= number; i++) {
-                sum = 0
+                let sum = 0
                 if (this.sequenceArr[i - 2] !== undefined) {
                     sum += this.sequenceArr[i - 2];
                 }
