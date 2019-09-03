@@ -1,6 +1,17 @@
 const Mergesort = require('../mergesort');
 
 describe("MergeSort Tests", function() {
+    it("merges 2 sorted arrays", function() {
+        let firstArray = generateRandomValuedArray(50, 50).sort(ascendingSort);
+        let secondArray = generateRandomValuedArray(50, 50).sort(ascendingSort);
+        let JSmergedArray = firstArray.concat(secondArray);
+        JSmergedArray.sort(ascendingSort);
+        
+        let MSmergedArray = Mergesort.merge(firstArray, secondArray);
+        
+        expect(MSmergedArray).toEqual(JSmergedArray);
+    });
+    
     it("works for edge cases - empty, 1 and 2 elements", function() {
         let sortedArray = Mergesort.sort([]); 
         expect(sortedArray).toEqual([]);
