@@ -26,6 +26,11 @@ describe("MergeSort Tests", function() {
         expect(mergesorted).toEqual(randomValues);
     });
     
+    it("works for descending sorted arrays", function() {
+        let sortedArray = Mergesort.sort([10,9,8,7,6,5,4,3,2,1,0]); 
+        expect(sortedArray).toEqual([0,1,2,3,4,5,6,7,8,9,10]);
+    });
+    
     var generateRandomValuedArray = function (len, max) {
         let values = Array(len).fill().map(() => {
             Math.round(Math.random() * max)
@@ -34,5 +39,9 @@ describe("MergeSort Tests", function() {
     
     var ascendingSort = function(a, b) {
         return a - b;
+    }
+    
+    var descendingSort = function(a, b) {
+        return b - a;
     }
 });
