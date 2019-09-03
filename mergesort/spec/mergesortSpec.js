@@ -33,8 +33,10 @@ describe("MergeSort Tests", function() {
     
     var generateRandomValuedArray = function (len, max) {
         let values = Array(len).fill().map(() => {
-            Math.round(Math.random() * max)
+            return Math.round(Math.random() * max)
         });
+        
+        return values;
     };
     
     var ascendingSort = function(a, b) {
