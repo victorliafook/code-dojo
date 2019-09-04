@@ -1,7 +1,6 @@
 var sort = function(someArray) {
-    //console.log('ARRAY', someArray);
-    //console.log('LENGTH', someArray.length);
     quicksort(someArray, 0, someArray.length - 1);
+    
     return someArray;
 };
 
@@ -14,19 +13,20 @@ var quicksort = function(someArray, from, to) {
 };
 
 var partition = function(someArray, from, to) {
-    // console.log('ARRAY', someArray);
-    // console.log('PARTITION', from, to);
     let pivot = someArray[from];
     let i = from + 1, j = to;
     
     while (true) {
         while (someArray[i] < pivot) {
+            if (i == to) break
             i++;
         }
         
         while (someArray[j] >= pivot) {
+            if (j == from) break
             j--;
         }
+        
         if (i >= j) break;
 
         let aux = someArray[i];
@@ -37,7 +37,7 @@ var partition = function(someArray, from, to) {
     
     someArray[from] = someArray[j];
     someArray[j] = pivot;
-    //console.log('PARTITIONED IN', i, j);
+
     return j;
 }
 
