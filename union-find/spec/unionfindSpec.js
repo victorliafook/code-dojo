@@ -20,4 +20,16 @@ describe("Union-Find tests", function() {
         }).toThrowError(/invalid node id/);
         
     });
+    
+        it("union operation works for edge cases", function() {
+        let numberOfNodes = 1;
+        let UF = new UnionFind(numberOfNodes);
+        
+        expect(UF.union(0, 0)).toEqual(undefined);
+        
+        expect(function() {
+            UF.union(0, 1);
+        }).toThrowError(/invalid node id/);
+        
+    });
 });

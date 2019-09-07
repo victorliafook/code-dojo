@@ -8,10 +8,18 @@ class UnionFind {
     }
     
     find = (nodeA, nodeB) => {
-        if (nodeA >= this.numberOfNodes || nodeB >= this.numberOfNodes)
-            throw new Error("invalid node id");
+        this.validateArguments(nodeA, nodeB);
         
         return true
+    };
+    
+    union = (nodeA, nodeB) => {
+        this.validateArguments(nodeA, nodeB);
+    };
+    
+    validateArguments = (nodeA, nodeB) => {
+        if (nodeA >= this.numberOfNodes || nodeB >= this.numberOfNodes)
+            throw new Error("invalid node id");
     };
 }
 
