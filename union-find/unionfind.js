@@ -5,12 +5,17 @@ class UnionFind {
         }
         
         this.numberOfNodes = numberOfNodes;
+        this.trackNodes = [];
+        
+        for (let i = 0; i < this.numberOfNodes; i++) {
+            this.trackNodes[i] = i;
+        }
     }
     
     find = (nodeA, nodeB) => {
         this.validateArguments(nodeA, nodeB);
         
-        return true
+        return this.trackNodes[nodeA] === this.trackNodes[nodeB];
     };
     
     union = (nodeA, nodeB) => {

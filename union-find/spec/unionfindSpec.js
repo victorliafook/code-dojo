@@ -21,7 +21,7 @@ describe("Union-Find tests", function() {
         
     });
     
-        it("union operation works for edge cases", function() {
+    it("union operation works for edge cases", function() {
         let numberOfNodes = 1;
         let UF = new UnionFind(numberOfNodes);
         
@@ -32,4 +32,19 @@ describe("Union-Find tests", function() {
         }).toThrowError(/invalid node id/);
         
     });
+    
+    it("initializes a set of nodes correctly", function() {
+        let numberOfNodes = 10;
+        let UF = new UnionFind(numberOfNodes);
+        
+        for (let i = 0; i < numberOfNodes; i++) {
+            for (let j = 0; j < numberOfNodes; j++) {
+                if (i === j) {
+                    expect(UF.find(i, j)).toEqual(true); 
+                } else {
+                    expect(UF.find(i, j)).toEqual(false);  
+                }
+            }
+        }
+    })
 });
