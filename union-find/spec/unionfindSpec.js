@@ -10,5 +10,12 @@ describe("Union-Find tests", function() {
         
         numberOfNodes = 1;
         UF = new UnionFind(numberOfNodes);
+        
+        expect(UF.find(0, 0)).toEqual(true);
+        
+        expect(function() {
+            UF.find(0, 1);
+        }).toThrowError(/invalid node id/);
+        
     });
 });
