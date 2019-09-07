@@ -15,11 +15,24 @@ class UnionFind {
     find = (nodeA, nodeB) => {
         this.validateArguments(nodeA, nodeB);
         
-        return this.trackNodes[nodeA] === this.trackNodes[nodeB];
+        return this.root(nodeA) === this.root(nodeB);
     };
     
     union = (nodeA, nodeB) => {
         this.validateArguments(nodeA, nodeB);
+        
+        let rootA = this.root(nodeA);
+        let rootB = this.root(nodeB);
+        
+        this.trackNodes[rootA] = rootB;
+    };
+    
+    root = (node) => {
+        while (this.trackNodes[node] !== node) {
+            node = this.trackNodes[node];
+        }
+        
+        return node;
     };
     
     validateArguments = (nodeA, nodeB) => {
