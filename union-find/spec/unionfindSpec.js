@@ -46,5 +46,34 @@ describe("Union-Find tests", function() {
                 }
             }
         }
-    })
+    });
+    
+    it("unites and finds the connections correctly", function() {
+        let numberOfNodes = 10;
+        let UF = new UnionFind(numberOfNodes);
+        
+        UF.union(0, 1);
+        UF.union(1, 2);
+        UF.union(2, 3);
+        
+        UF.union(4, 5);
+        UF.union(4, 6);
+        UF.union(4, 7);
+        
+        UF.union(8, 9);
+
+        expect(UF.find(0, 3)).toEqual(true);
+        
+        expect(UF.find(4, 7)).toEqual(true);
+        
+        expect(UF.find(8, 9)).toEqual(true);
+        
+        expect(UF.find(1, 5)).toEqual(false);
+        
+        expect(UF.find(1, 9)).toEqual(false);
+        
+        expect(UF.find(5, 0)).toEqual(false);
+        
+        expect(UF.find(5, 8)).toEqual(false);
+    });
 });
