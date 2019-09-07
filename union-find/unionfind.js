@@ -5,10 +5,12 @@ class UnionFind {
         }
         
         this.numberOfNodes = numberOfNodes;
+        this.sizes = [];
         this.trackNodes = [];
         
         for (let i = 0; i < this.numberOfNodes; i++) {
             this.trackNodes[i] = i;
+            this.sizes[i] = 1;
         }
     }
     
@@ -23,16 +25,23 @@ class UnionFind {
         
         let rootA = this.root(nodeA);
         let rootB = this.root(nodeB);
-        
-        this.trackNodes[rootA] = rootB;
+        if (this.sizes[rootA] <= this.sizes[rootB]) {
+            this.trackNodes[rootA] = rootB;
+            this.sizes[rootA]++;
+        } else {
+            this.trackNodes[rootB] = rootA;
+            this.sizes[rootB]++;
+        }
     };
     
     root = (node) => {
-        while (this.trackNodes[node] !== node) {
-            node = this.trackNodes[node];
+        let parent = this.trackNodes[node];
+        while (parent !== this.trackNodes[parent]) {
+            parent = this.trackNodes[parent];
         }
         
-        return node;
+        this.trackNodes[node] = parent;
+        return parent;
     };
     
     validateArguments = (nodeA, nodeB) => {
