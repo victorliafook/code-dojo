@@ -31,7 +31,7 @@ class UnionFind {
         } else {
             this.trackNodes[rootB] = rootA;
             this.sizes[rootA] += this.sizes[rootB];
-        }}
+        }
     };
     
     root = (node) => {
