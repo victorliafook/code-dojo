@@ -27,11 +27,11 @@ class UnionFind {
         let rootB = this.root(nodeB);
         if (this.sizes[rootA] <= this.sizes[rootB]) {
             this.trackNodes[rootA] = rootB;
-            this.sizes[rootA]++;
+            this.sizes[rootB] += this.sizes[rootA];
         } else {
             this.trackNodes[rootB] = rootA;
-            this.sizes[rootB]++;
-        }
+            this.sizes[rootA] += this.sizes[rootB];
+        }}
     };
     
     root = (node) => {
