@@ -5,8 +5,8 @@ class DAG {
     }
     
     addEdge = (a, b) => {
-        validateVertex(a);
-        validateVertex(b);
+        this.validateVertex(a);
+        this.validateVertex(b);
         if (this.adjList[a] === undefined) {
             this.adjList[a] = {};
         }
