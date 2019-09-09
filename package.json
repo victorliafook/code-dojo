@@ -1,0 +1,22 @@
+{
+  "name": "code-dojo",
+  "version": "1.0.0",
+  "description": "Repository with algorithmic katas - unit tests and reference implementations to practice and keep sharp",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorliafook/code-dojo.git"
+  },
+  "keywords": [
+    "algorithms"
+  ],
+  "author": "Victor Lia Fook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorliafook/code-dojo/issues"
+  },
+  "homepage": "https://github.com/victorliafook/code-dojo#readme"
+}
