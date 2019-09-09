@@ -16,7 +16,7 @@ class DAG {
     
     validateVertex = (vertex) => {
         if (vertex < 0 || vertex >= nOfVertices) {
-            throw new Erro("Invalid vertex");
+            throw new Error("Invalid vertex");
         }  
     };
 }
