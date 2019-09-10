@@ -1,10 +1,19 @@
 var bfs = function(graph, startVertex, processVertex) {
-    processVertex(startVertex);
+    let queue = [];
+    let visited = {};
     
-    let current = graph.adjList[startVertex];
-    for(let vertex in current) {
-        processVertex(vertex);
+    queue.push(startVertex);
+    
+    while(queue.length > 0) {
+        let current = queue.shift();
+        processVertex(current);
+    
+        let adjVertices = graph.adjList[current];
+        for(let vertex in adjVertices) {
+            queue.push(vertex);
+        }
     }
+
 };
 
 module.exports = bfs;
