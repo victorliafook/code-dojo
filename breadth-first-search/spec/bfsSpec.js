@@ -62,6 +62,18 @@ describe("BFS tests", function() {
       
       BFS(graph, 0, processVertex);
       expect(traversalArr.join(',')).toEqual('0,1,2,3,4');
+      
+      traversalArr = [];
+      BFS(graph, 1, processVertex);
+      expect(traversalArr.join(',')).toEqual('1');
+      
+      traversalArr = [];
+      BFS(graph, 2, processVertex);
+      expect(traversalArr.join(',')).toEqual('2,4');
+      
+      traversalArr = [];
+      BFS(graph, 3, processVertex);
+      expect(traversalArr.join(',')).toEqual('3');
    });
    
    it("Handles cycles", function() {
