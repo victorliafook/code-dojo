@@ -10,11 +10,11 @@ var bfs = function(graph, startVertex, processVertex) {
         processVertex(current);
     
         let adjVertices = graph.adjList[current];
-        for (let vertex in adjVertices) {
+        adjVertices.forEach((vertex) => {
             if (visited[vertex] === undefined) {
                 queue.push(vertex);
             }
-        }
+        });
     }
 };
 

@@ -49,7 +49,7 @@ describe("BFS tests", function() {
    }); 
    
    it("Traverses Breadth-First correctly", function() {
-      let graph = new Digraph(4);
+      let graph = new Digraph(5);
       graph.addEdge(0, 1);
       graph.addEdge(0, 2); 
       graph.addEdge(0, 3); 
@@ -74,6 +74,22 @@ describe("BFS tests", function() {
       traversalArr = [];
       BFS(graph, 3, processVertex);
       expect(traversalArr.join(',')).toEqual('3');
+      
+      graph = new Digraph(10);
+      graph.addEdge(0, 1);
+      graph.addEdge(0, 2); 
+      graph.addEdge(2, 3); 
+      graph.addEdge(2, 4);
+      graph.addEdge(2, 5);
+      graph.addEdge(5, 6);
+      graph.addEdge(5, 8);
+      graph.addEdge(8, 9);
+      graph.addEdge(0, 9);
+      graph.addEdge(5, 7);
+       
+      traversalArr = [];
+      BFS(graph, 0, processVertex);
+      expect(traversalArr.join(',')).toEqual('0,1,2,9,3,4,5,6,8,7');
    });
    
    it("Handles cycles", function() {
