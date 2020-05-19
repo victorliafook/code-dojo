@@ -45,8 +45,13 @@ class UnionFind {
     };
     
     validateArguments = (nodeA, nodeB) => {
-        if (nodeA >= this.numberOfNodes || nodeB >= this.numberOfNodes)
-            throw new Error("invalid node id");
+        if (nodeA >= this.numberOfNodes) {
+            throw new Error("invalid node id " + nodeA);
+        } 
+        
+        if (nodeB >= this.numberOfNodes) {
+            throw new Error("invalid node id " + nodeB);
+        }
     };
 }
 
